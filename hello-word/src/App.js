@@ -3,6 +3,8 @@ import FirstComponent from './components/FirstComponent';
 import logo from './logo.svg';
 import './App.css';
 import TemplateExpressions from './components/TemplateExpressions';
+import Events from './components/Events';
+import Challenge from './components/Challenge';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <h2>teste</h2>
       <FirstComponent/>
       <TemplateExpressions/>
+      <Events/>
+      <Challenge/>
     </div>
   );
 }
