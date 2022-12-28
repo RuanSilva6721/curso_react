@@ -9,8 +9,11 @@ import City from './assets/city.jpg'
 import ManageData from './components/ManageData';
 import ListRender from './components/ListRender';
 import ConditionalRender from './components/ConditionalRender';
+import ShowUserName from './components/ShowUserName';
+import CarDetails from './components/CarDetails';
 
 function App() {
+  const UserName = "Ruan Felipe";
   return (
     <div className="App">
       <h1>Hello World!</h1>
@@ -29,6 +32,8 @@ function App() {
       <ManageData/>
       <ListRender/>
       <ConditionalRender/>
+      <ShowUserName name={UserName} />
+      <CarDetails brand="VW" km={10000} color="Azul" />
     </div>
   );
 }
