@@ -1,3 +1,5 @@
+import "./CarDetails.css";
+
 
 const CarDetails = ({brand, km, color}) => {
   return (
@@ -9,6 +11,8 @@ const CarDetails = ({brand, km, color}) => {
             <li>{km}</li>
             <li>{ color}</li>
         </ul>
+        <p>testando css</p>
+        <h3>testando css</h3>
     </div>
   )
 }

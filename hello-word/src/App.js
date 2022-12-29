@@ -12,6 +12,7 @@ import ShowUserName from './components/ShowUserName';
 import CarDetails from './components/CarDetails';
 import Container from './components/Container';
 import UserDetails from './components/UserDetails';
+import MyForm from './components/MyForm';
 
 function App() {
   const UserName = "Ruan Felipe";
@@ -40,6 +41,11 @@ function App() {
       <div>
         <img src={City} alt="Cidade" />
       </div>
+
+    <h2>Forms</h2>
+    <MyForm />
+
+
       <p> div</p>
       <h2>teste</h2>
       <FirstComponent/>
