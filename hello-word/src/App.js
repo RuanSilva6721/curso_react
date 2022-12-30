@@ -43,7 +43,7 @@ function App() {
       </div>
 
     <h2>Forms</h2>
-    <MyForm />
+    <MyForm user={{ name: "Ruan", email: "testet@gmail.com" }} />
 
 
       <p> div</p>
