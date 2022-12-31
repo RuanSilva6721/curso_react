@@ -19,8 +19,36 @@ function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words] = useState(wordsList);
 
+  const [pickedWord, setPickedWord] = useState("")
+  const [pickedCategory, setPickedCategory] = useState("");
+  const [lettrs, setLettrs] = useState([]);
+
+  const pickWordAndCategory = () =>{
+    const categories = Object.keys(words);
+    const category = categories[Math.floor(Math.random() * Object.keys(categories).length)];
+
+    const word = words[category][Math.floor(Math.random() *  words[category].length)];
+
+    console.log(category, word);
+    return {word, category};
+  }
+
   const startGame =  () => {
+      const {word, category} = pickWordAndCategory()
+
+      let wordLetters = word.split('')
+      wordLetters = wordLetters.map((l) => l.toLowerCase())
+
+      console.log(category, word, wordLetters);
+      setPickedWord(word);
+      setPickedCategory(category);
+      setLettrs(lettrs);
+
+
+
+
     setGameStage(stages[1].name)
+
   }
   const verifyLetter = () =>{
     setGameStage(stages[2].name)
@@ -28,6 +56,9 @@ function App() {
   const retry = () =>{
     setGameStage(stages[0].name)
   }
+
+
+
   return (
     <div className="App">
         {gameStage === 'start' && <StartScreen startGame={startGame}/> }
