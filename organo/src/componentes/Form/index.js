@@ -1,3 +1,4 @@
+import Button from '../Button'
 import DropdownList from '../DropdownList'
 import Label from '../Label'
 import './Form.css'
@@ -20,6 +21,9 @@ const Form = () => {
                     <Label label="Cargo" placeholder="Digite o seu cargo" />
                     <Label label="Imagem" placeholder="Digite o endereço da Imagem" />
                     <DropdownList itens={time} label="Time"/>
+                    <Button>
+                        Criar Card
+                    </Button>
 
                 </form>
             </section>
