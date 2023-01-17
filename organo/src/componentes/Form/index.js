@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Button from '../Button'
 import DropdownList from '../DropdownList'
 import Label from '../Label'
@@ -11,16 +12,49 @@ const Form = () => {
         'Data Science',
         'Devops',
         'Mobile'
-    ]
+    ];
+    const [nome, setNome] = useState('');
+    const [cargo, setCargo] = useState('');
+    const [imagem, setImagem] = useState('');
+    const [times, setTimes] = useState('');
+
+
+
+    const aoSalvar = (e) => {
+        e.preventDefault();
+        console.log('Form foi submetido', nome, cargo, imagem, times)
+    }
     return (
         <div>
             <section className="Form">
-                <form>
+                <form onSubmit={aoSalvar}>
                     <h2>Preencha os dados para criar o card do colaborador</h2>
-                    <Label label="Nome" placeholder="Digite o seu nome" />
-                    <Label label="Cargo" placeholder="Digite o seu cargo" />
-                    <Label label="Imagem" placeholder="Digite o endereço da Imagem" />
-                    <DropdownList itens={time} label="Time"/>
+                    <Label 
+                    obrigatorio={true} 
+                    label="Nome" 
+                    valor={nome}
+                    aoAlterado={valor => setNome(valor)}
+                    placeholder="Digite o seu nome" 
+                    />
+                    <Label 
+                    obrigatorio={true} 
+                    label="Cargo" 
+                    valor={cargo}
+                    aoAlterado={valor => setCargo(valor)}
+                    placeholder="Digite o seu cargo" 
+                    />
+                    <Label label="Imagem" 
+                    valor={imagem}
+                    aoAlterado={valor => setImagem(valor)}
+                    placeholder="Digite o endereço da Imagem" />
+
+                    <DropdownList 
+                    obrigatorio={true} 
+                    itens={time} 
+                    valor={times}
+                    aoAlterado={valor => setTimes(valor)}
+                    label="Time"
+                    />
                     <Button>
                         Criar Card
                     </Button>
