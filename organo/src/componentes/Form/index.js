@@ -4,7 +4,7 @@ import DropdownList from '../DropdownList'
 import Label from '../Label'
 import './Form.css'
 
-const Form = () => {
+const Form = (props) => {
     const time = [
         'Programação',
         'Front-End',
@@ -23,6 +23,13 @@ const Form = () => {
     const aoSalvar = (e) => {
         e.preventDefault();
         console.log('Form foi submetido', nome, cargo, imagem, times)
+        props.aoColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            times
+        })
+  
     }
     return (
         <div>
