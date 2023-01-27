@@ -5,14 +5,7 @@ import Label from '../Label'
 import './Form.css'
 
 const Form = (props) => {
-    const time = [
-        'Programação',
-        'Front-End',
-        'Banck-End',
-        'Data Science',
-        'Devops',
-        'Mobile'
-    ];
+
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
     const [imagem, setImagem] = useState('');
@@ -57,7 +50,7 @@ const Form = (props) => {
 
                     <DropdownList 
                     obrigatorio={true} 
-                    itens={time} 
+                    itens={props.times} 
                     valor={times}
                     aoAlterado={valor => setTimes(valor)}
                     label="Time"
