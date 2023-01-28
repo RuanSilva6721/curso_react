@@ -5,6 +5,16 @@ import Form from './componentes/Form';
 import Time from './componentes/Time';
 
 function App() {
+  // const defaultUser =[{
+  //   nome: 'Ruan Felipe',
+  //   cargo: 'Desenvolvedor PHP',
+  //   imagem: 'https://github.com/RuanSilva6721.png',
+  //   times: 'Back-End'
+  // }
+  // ];
+  // defaultUser.map((user) => aoNovoColaboradorAdicionar(user))
+
+
   const times = [
     {
       nome: 'Front-End',
@@ -17,7 +27,7 @@ function App() {
     corSecundaria: '#FFEEDF',
 },
   {
-      nome: 'Data Sciense',
+      nome: 'Data Science',
       corPrimaria: '#A6D157',
       corSecundaria: '#F0F8E2',
   },
@@ -45,15 +55,16 @@ function App() {
   const [colaboradores, setColaboradores] = useState([]);
   const aoNovoColaboradorAdicionar = (colaborador) =>{
     console.log(colaborador);
-    setColaboradores([colaboradores, colaborador])
+    setColaboradores([...colaboradores, colaborador])
+    
   }
 
   return (
     <div className="App">
       <Banner/>
-      <Form aoColaboradorCadastrado={aoNovoColaboradorAdicionar} times={times.map(time => time.nome)} />
+      <Form aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionar(colaborador)} times={times.map(time => time.nome)} />
 
-      {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria}  corSecundaria={time.corSecundaria} colaboradores={colaboradores.filter(colaborador => colaborador.time == time.nome)}/>)}
+      {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria}  corSecundaria={time.corSecundaria} colaboradores={colaboradores.filter(colaborador => colaborador.times == time.nome)}/>)}
       
 
     </div>
