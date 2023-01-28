@@ -12,6 +12,11 @@ function App() {
       corSecundaria: '#E8F8FF',
   },
   {
+    nome: 'Back-End',
+    corPrimaria: '#D86EBF',
+    corSecundaria: '#FFEEDF',
+},
+  {
       nome: 'Data Sciense',
       corPrimaria: '#A6D157',
       corSecundaria: '#F0F8E2',
@@ -41,8 +46,6 @@ function App() {
   const aoNovoColaboradorAdicionar = (colaborador) =>{
     console.log(colaborador);
     setColaboradores([colaboradores, colaborador])
-
-    
   }
 
   return (
@@ -50,7 +53,7 @@ function App() {
       <Banner/>
       <Form aoColaboradorCadastrado={aoNovoColaboradorAdicionar} times={times.map(time => time.nome)} />
 
-      {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria}  corSecundaria={time.corSecundaria}/>)}
+      {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria}  corSecundaria={time.corSecundaria} colaboradores={colaboradores.filter(colaborador => colaborador.time == time.nome)}/>)}
       
 
     </div>
