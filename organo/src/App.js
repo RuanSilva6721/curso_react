@@ -9,8 +9,10 @@ function App() {
     nome: 'Ruan Felipe',
     cargo: 'Desenvolvedor PHP',
     imagem: 'https://github.com/RuanSilva6721.png',
+    linkedin: 'https://www.linkedin.com/in/ruan-felipe-silva-06b9631a6/',
     times: 'Back-End',
-  }
+  },
+  
   ];
 
 
@@ -24,7 +26,7 @@ function App() {
   {
     nome: 'Back-End',
     corPrimaria: '#D86EBF',
-    corSecundaria: '#FFEEDF',
+    corSecundaria: '#F7F7F7',
 },
   {
       nome: 'Data Science',
@@ -54,24 +56,23 @@ function App() {
 ]
   const [colaboradores, setColaboradores] = useState([]);
   const aoNovoColaboradorAdicionar = (colaborador) =>{
-    console.log(colaborador);
     setColaboradores([...colaboradores, colaborador])
     
   }
   useEffect(() => {
-    defaultUser.map((user) => {
-      aoNovoColaboradorAdicionar(user)
+    defaultUser.map(user => {
+      console.log(user)
+      setColaboradores([...colaboradores, user])
     }
     )
 	},[])
 
-console.log(colaboradores)
   return (
     <div className="App">
       <Banner/>
       <Form aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionar(colaborador)} times={times.map(time => time.nome)} />
 
-      {times.map(time => <Time key={time.nome} nome={time.nome} corPrimaria={time.corPrimaria}  corSecundaria={time.corSecundaria} colaboradores={colaboradores.filter(colaborador => colaborador.times == time.nome)}/>)}
+      {times.map(time => <Time key={time.nome} nome={time.nome}  corPrimaria={time.corPrimaria}  corSecundaria={time.corSecundaria} colaboradores={colaboradores.filter(colaborador => colaborador.times == time.nome)}/>)}
       
 
     </div>

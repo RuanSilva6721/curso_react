@@ -10,22 +10,24 @@ const Form = (props) => {
     const [cargo, setCargo] = useState('');
     const [imagem, setImagem] = useState('');
     const [times, setTimes] = useState('');
+    const [linkedin, setLinkedin] = useState('');
 
 
 
     const aoSalvar = (e) => {
         e.preventDefault();
-        console.log('Form foi submetido', nome, cargo, imagem, times)
         props.aoColaboradorCadastrado({
             nome,
             cargo,
             imagem,
-            times
+            times, 
+            linkedin
         })
         setNome('')
         setCargo('')
         setImagem('')
         setTimes('')
+        setLinkedin('')
   
     }
     return (
@@ -51,6 +53,11 @@ const Form = (props) => {
                     valor={imagem}
                     aoAlterado={valor => setImagem(valor)}
                     placeholder="Digite o endereço da Imagem" />
+
+                    <Label label="Linkedin" 
+                    valor={linkedin}
+                    aoAlterado={valor => setLinkedin(valor)}
+                    placeholder="Digite o endereço do seu Linkedin" />
 
                     <DropdownList 
                     obrigatorio={true} 
