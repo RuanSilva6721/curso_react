@@ -1,18 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Banner from './componentes/Banner';
 import Form from './componentes/Form';
 import Time from './componentes/Time';
 
 function App() {
-  // const defaultUser =[{
-  //   nome: 'Ruan Felipe',
-  //   cargo: 'Desenvolvedor PHP',
-  //   imagem: 'https://github.com/RuanSilva6721.png',
-  //   times: 'Back-End'
-  // }
-  // ];
-  // defaultUser.map((user) => aoNovoColaboradorAdicionar(user))
+  const defaultUser =[{
+    nome: 'Ruan Felipe',
+    cargo: 'Desenvolvedor PHP',
+    imagem: 'https://github.com/RuanSilva6721.png',
+    times: 'Back-End',
+  }
+  ];
+
 
 
   const times = [
@@ -58,7 +58,14 @@ function App() {
     setColaboradores([...colaboradores, colaborador])
     
   }
+  useEffect(() => {
+    defaultUser.map((user) => {
+      aoNovoColaboradorAdicionar(user)
+    }
+    )
+	},[])
 
+console.log(colaboradores)
   return (
     <div className="App">
       <Banner/>
